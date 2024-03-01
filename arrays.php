@@ -26,7 +26,7 @@
 
 
     //array_filter
-    function arrayFilter($arr, $callback, $returnKey = false)
+    function arrayFilter($arr, $callback, $returnKey)
     {
         $result = [];
     
@@ -49,7 +49,7 @@
     }
     
     $a1 = ["A" => 1,"B" => 3, "C" => 2, "D" => 3, "E" => 4];
-    print_r(arrayFilter($a1, "oddNumber", true)); 
+    // print_r(arrayFilter($a1, "oddNumber", true)); 
     print_r(arrayFilter($a1, "oddNumber", false));
 
 
