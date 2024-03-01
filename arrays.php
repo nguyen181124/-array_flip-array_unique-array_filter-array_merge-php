@@ -26,25 +26,31 @@
 
 
     //array_filter
-    function arrayFilter($arr, $callback)
+    function arrayFilter($arr, $callback, $returnKey = false)
     {
         $result = [];
-
+    
         foreach ($arr as $key => $value) {
             if ($callback($value)) {
-                $result[] = $value;
+                if ($returnKey) {
+                    $result[] = $key;
+                } else {
+                    $result[$key] = $value;
+                }
             }
         }
-
-        print_r($result);
+    
+        return $result;
     }
+    
     function oddNumber($number)
     {
         return($number % 2 != 0);
     }
-
-    $a1 = [1, 3, 2, 3, 4];
-    arrayFilter($a1, "oddNumber");
+    
+    $a1 = ["A" => 1,"B" => 3, "C" => 2, "D" => 3, "E" => 4];
+    print_r(arrayFilter($a1, "oddNumber", true)); 
+    print_r(arrayFilter($a1, "oddNumber", false));
 
 
     //array_unique
